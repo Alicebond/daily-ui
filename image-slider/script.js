@@ -7,6 +7,7 @@ const slider = function () {
   const dotContainer = document.querySelector('.dots')
 
   let curSlide = 0;
+  let maxSlides = slides.length;
   const creatDots = function () {
     slides.forEach((_, i) => {
       dotContainer.insertAdjacentHTML('beforeend', `<button class="dots__dot" data-slide="${i}"></button>`)
@@ -24,7 +25,7 @@ const slider = function () {
     });
   }
   const nextSlide = function () {
-    if (curSlide >= 2) {
+    if (curSlide >= (maxSlides - 1)) {
       curSlide = 0;
     } else {
       curSlide++;
@@ -35,7 +36,7 @@ const slider = function () {
   };
   const preSlide = function () {
     if (curSlide <= 0) {
-      curSlide = 2;
+      curSlide = maxSlides - 1;
     } else {
       curSlide--;
     }
